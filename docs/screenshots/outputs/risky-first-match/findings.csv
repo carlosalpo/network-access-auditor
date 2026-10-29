@@ -1,0 +1,16 @@
+id,severity,code,location,message,remediation
+UNCLASSIFIED_INTERNAL_ACCESS:decision/broad-first,critical,UNCLASSIFIED_INTERNAL_ACCESS,decision/broad-first,Effective modeled access violates the declared review baseline.,Keep unclassified identities out of internal access profiles.
+INTENT_MISMATCH:check/admin-mab-denied,high,INTENT_MISMATCH,check/admin-mab-denied,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+INTENT_MISMATCH:check/noncompliant-restricted,high,INTENT_MISMATCH,check/noncompliant-restricted,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+INTENT_MISMATCH:check/printer-restricted,high,INTENT_MISMATCH,check/printer-restricted,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+INTENT_MISMATCH:check/unknown-denied,high,INTENT_MISMATCH,check/unknown-denied,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+MAB_EXCEPTION_MISSING:endpoint/sample-2,high,MAB_EXCEPTION_MISSING,endpoint/sample-2,MAB internal access lacks a current accountable exception.,"Record accountable owner, reason and expiration for this MAB exception."
+MAB_EXCEPTION_MISSING:endpoint/sample-5,high,MAB_EXCEPTION_MISSING,endpoint/sample-5,MAB internal access lacks a current accountable exception.,"Record accountable owner, reason and expiration for this MAB exception."
+STANDARD_UNTRUSTED_GROUP:decision/broad-first,high,STANDARD_UNTRUSTED_GROUP,decision/broad-first,Effective modeled access violates the declared review baseline.,Use a reviewed restricted profile for unmanaged/guest groups.
+STANDARD_WITHOUT_COMPLIANCE:decision/broad-first,high,STANDARD_WITHOUT_COMPLIANCE,decision/broad-first,Effective modeled access violates the declared review baseline.,Require compliant posture or explicitly revise the baseline.
+STANDARD_WITHOUT_DOT1X:decision/broad-first,high,STANDARD_WITHOUT_DOT1X,decision/broad-first,Effective modeled access violates the declared review baseline.,Require dot1x or explicitly revise the declared baseline after review.
+RULE_SHADOWED:rule/admins-compliant,medium,RULE_SHADOWED,rule/admins-compliant,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.
+RULE_SHADOWED:rule/employees-compliant,medium,RULE_SHADOWED,rule/employees-compliant,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.
+RULE_SHADOWED:rule/guest-restricted,medium,RULE_SHADOWED,rule/guest-restricted,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.
+RULE_SHADOWED:rule/managed-remediation,medium,RULE_SHADOWED,rule/managed-remediation,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.
+RULE_SHADOWED:rule/printer-mab,medium,RULE_SHADOWED,rule/printer-mab,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.

@@ -1,0 +1,483 @@
+{
+  "assessment_date": "2026-10-29",
+  "baseline": {
+    "standard_requires_compliant": true,
+    "standard_requires_dot1x": true
+  },
+  "checks": [
+    {
+      "actual_profile": "deny",
+      "decision": "@default",
+      "expected_profile": "deny",
+      "group": "admins",
+      "id": "admin-mab-denied",
+      "method": "mab",
+      "passed": true,
+      "posture": "compliant"
+    },
+    {
+      "actual_profile": "quarantine",
+      "decision": "managed-remediation",
+      "expected_profile": "quarantine",
+      "group": "employees",
+      "id": "noncompliant-restricted",
+      "method": "dot1x",
+      "passed": true,
+      "posture": "noncompliant"
+    },
+    {
+      "actual_profile": "print-only",
+      "decision": "printer-mab",
+      "expected_profile": "print-only",
+      "group": "printers",
+      "id": "printer-restricted",
+      "method": "mab",
+      "passed": true,
+      "posture": "unknown"
+    },
+    {
+      "actual_profile": "staff",
+      "decision": "employees-compliant",
+      "expected_profile": "deny",
+      "group": "employees",
+      "id": "staff-pass",
+      "method": "dot1x",
+      "passed": false,
+      "posture": "compliant"
+    },
+    {
+      "actual_profile": "deny",
+      "decision": "@default",
+      "expected_profile": "deny",
+      "group": "unclassified",
+      "id": "unknown-denied",
+      "method": "dot1x",
+      "passed": true,
+      "posture": "compliant"
+    }
+  ],
+  "counts": {
+    "checks": 5,
+    "enabled_rules": 5,
+    "endpoints": 5,
+    "failed_checks": 1,
+    "findings": 1,
+    "groups": 4,
+    "profiles": 6,
+    "rules": 5,
+    "states": 30
+  },
+  "endpoints": [
+    {
+      "access": "standard",
+      "decision": "employees-compliant",
+      "exception_owner": "",
+      "exception_status": "not-required",
+      "expires_on": "",
+      "group": "employees",
+      "id": "sample-1",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "staff"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "exception_owner": "",
+      "exception_status": "not-required",
+      "expires_on": "",
+      "group": "admins",
+      "id": "sample-2",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "deny"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "exception_owner": "",
+      "exception_status": "not-required",
+      "expires_on": "",
+      "group": "unclassified",
+      "id": "sample-3",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "deny"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "exception_owner": "",
+      "exception_status": "not-required",
+      "expires_on": "",
+      "group": "employees",
+      "id": "sample-4",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "quarantine"
+    },
+    {
+      "access": "restricted",
+      "decision": "printer-mab",
+      "exception_owner": "",
+      "exception_status": "not-required",
+      "expires_on": "",
+      "group": "printers",
+      "id": "sample-5",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "print-only"
+    }
+  ],
+  "findings": [
+    {
+      "code": "INTENT_MISMATCH",
+      "evidence": {
+        "actual_profile": "staff",
+        "context": {
+          "group": "employees",
+          "method": "dot1x",
+          "posture": "compliant"
+        },
+        "decision": "employees-compliant",
+        "expected_profile": "deny"
+      },
+      "id": "INTENT_MISMATCH:check/staff-pass",
+      "location": "check/staff-pass",
+      "message": "First-match result differs from the declared expected profile.",
+      "remediation": "Review the first winning rule against the expected profile.",
+      "severity": "high"
+    }
+  ],
+  "gate": {
+    "fail_on": "medium",
+    "failed": true
+  },
+  "rule_coverage": [
+    {
+      "effective_states": 1,
+      "enabled": true,
+      "order": 1,
+      "potential_states": 1,
+      "profile": "admin",
+      "rule": "admins-compliant",
+      "shadowed_by": [],
+      "shadowed_states": 0
+    },
+    {
+      "effective_states": 1,
+      "enabled": true,
+      "order": 2,
+      "potential_states": 1,
+      "profile": "staff",
+      "rule": "employees-compliant",
+      "shadowed_by": [],
+      "shadowed_states": 0
+    },
+    {
+      "effective_states": 8,
+      "enabled": true,
+      "order": 3,
+      "potential_states": 8,
+      "profile": "quarantine",
+      "rule": "managed-remediation",
+      "shadowed_by": [],
+      "shadowed_states": 0
+    },
+    {
+      "effective_states": 3,
+      "enabled": true,
+      "order": 4,
+      "potential_states": 3,
+      "profile": "print-only",
+      "rule": "printer-mab",
+      "shadowed_by": [],
+      "shadowed_states": 0
+    },
+    {
+      "effective_states": 6,
+      "enabled": true,
+      "order": 5,
+      "potential_states": 6,
+      "profile": "guest-only",
+      "rule": "guest-restricted",
+      "shadowed_by": [],
+      "shadowed_states": 0
+    }
+  ],
+  "schema_version": 1,
+  "scope": "offline-normalized-nac-model",
+  "states": [
+    {
+      "access": "privileged",
+      "decision": "admins-compliant",
+      "group": "admins",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "admin",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "admins",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "admins",
+      "method": "dot1x",
+      "posture": "unknown",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "admins",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "deny",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "admins",
+      "method": "mab",
+      "posture": "noncompliant",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "admins",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "standard",
+      "decision": "employees-compliant",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "staff",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "unknown",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "employees",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "deny",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "employees",
+      "method": "mab",
+      "posture": "noncompliant",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "managed-remediation",
+      "group": "employees",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "quarantine",
+      "trust": "managed"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "dot1x",
+      "posture": "unknown",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "mab",
+      "posture": "noncompliant",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "restricted",
+      "decision": "guest-restricted",
+      "group": "guests",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "guest-only",
+      "trust": "guest"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "printers",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "deny",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "printers",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "deny",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "printers",
+      "method": "dot1x",
+      "posture": "unknown",
+      "profile": "deny",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "restricted",
+      "decision": "printer-mab",
+      "group": "printers",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "print-only",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "restricted",
+      "decision": "printer-mab",
+      "group": "printers",
+      "method": "mab",
+      "posture": "noncompliant",
+      "profile": "print-only",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "restricted",
+      "decision": "printer-mab",
+      "group": "printers",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "print-only",
+      "trust": "unmanaged"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "dot1x",
+      "posture": "compliant",
+      "profile": "deny",
+      "trust": "unclassified"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "profile": "deny",
+      "trust": "unclassified"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "dot1x",
+      "posture": "unknown",
+      "profile": "deny",
+      "trust": "unclassified"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "mab",
+      "posture": "compliant",
+      "profile": "deny",
+      "trust": "unclassified"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "mab",
+      "posture": "noncompliant",
+      "profile": "deny",
+      "trust": "unclassified"
+    },
+    {
+      "access": "deny",
+      "decision": "@default",
+      "group": "unclassified",
+      "method": "mab",
+      "posture": "unknown",
+      "profile": "deny",
+      "trust": "unclassified"
+    }
+  ],
+  "status": "review_required"
+}

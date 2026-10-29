@@ -1,0 +1,246 @@
+{
+  "assessment_date": "2026-10-29",
+  "baseline": {
+    "standard_requires_compliant": true,
+    "standard_requires_dot1x": false
+  },
+  "checks": [
+    {
+      "expected_profile": "deny",
+      "group": "admins",
+      "id": "admin-mab-denied",
+      "method": "mab",
+      "posture": "compliant"
+    },
+    {
+      "expected_profile": "quarantine",
+      "group": "employees",
+      "id": "noncompliant-restricted",
+      "method": "dot1x",
+      "posture": "noncompliant"
+    },
+    {
+      "expected_profile": "print-only",
+      "group": "printers",
+      "id": "printer-restricted",
+      "method": "mab",
+      "posture": "unknown"
+    },
+    {
+      "expected_profile": "staff",
+      "group": "employees",
+      "id": "staff-pass",
+      "method": "dot1x",
+      "posture": "compliant"
+    },
+    {
+      "expected_profile": "deny",
+      "group": "unclassified",
+      "id": "unknown-denied",
+      "method": "dot1x",
+      "posture": "compliant"
+    }
+  ],
+  "default_profile": "deny",
+  "endpoints": [
+    {
+      "group": "employees",
+      "id": "legacy-device",
+      "mab_exception": {
+        "expires_on": "2026-10-29",
+        "owner": "network-team",
+        "reason": "Reviewed synthetic migration exception"
+      },
+      "method": "mab",
+      "posture": "compliant"
+    },
+    {
+      "group": "employees",
+      "id": "sample-1",
+      "mab_exception": null,
+      "method": "dot1x",
+      "posture": "compliant"
+    },
+    {
+      "group": "admins",
+      "id": "sample-2",
+      "mab_exception": null,
+      "method": "mab",
+      "posture": "compliant"
+    },
+    {
+      "group": "unclassified",
+      "id": "sample-3",
+      "mab_exception": null,
+      "method": "dot1x",
+      "posture": "compliant"
+    },
+    {
+      "group": "employees",
+      "id": "sample-4",
+      "mab_exception": null,
+      "method": "dot1x",
+      "posture": "noncompliant"
+    },
+    {
+      "group": "printers",
+      "id": "sample-5",
+      "mab_exception": null,
+      "method": "mab",
+      "posture": "unknown"
+    }
+  ],
+  "groups": [
+    {
+      "id": "admins",
+      "label": "Managed administrators",
+      "trust": "managed"
+    },
+    {
+      "id": "employees",
+      "label": "Managed workstations",
+      "trust": "managed"
+    },
+    {
+      "id": "guests",
+      "label": "Guest identities",
+      "trust": "guest"
+    },
+    {
+      "id": "printers",
+      "label": "Unmanaged printers",
+      "trust": "unmanaged"
+    }
+  ],
+  "id": "reference-nac",
+  "profiles": [
+    {
+      "access": "privileged",
+      "id": "admin",
+      "label": "Privileged internal access"
+    },
+    {
+      "access": "deny",
+      "id": "deny",
+      "label": "Deny"
+    },
+    {
+      "access": "restricted",
+      "id": "guest-only",
+      "label": "Declared restricted guest access"
+    },
+    {
+      "access": "restricted",
+      "id": "print-only",
+      "label": "Declared restricted printing"
+    },
+    {
+      "access": "restricted",
+      "id": "quarantine",
+      "label": "Declared restricted remediation"
+    },
+    {
+      "access": "standard",
+      "id": "staff",
+      "label": "Internal standard access"
+    }
+  ],
+  "provenance": {
+    "kind": "synthetic",
+    "reference": "Public hand-authored example; no Cisco ISE export"
+  },
+  "rules": [
+    {
+      "enabled": true,
+      "id": "admins-compliant",
+      "match": {
+        "groups": [
+          "admins"
+        ],
+        "methods": [
+          "dot1x"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "admin"
+    },
+    {
+      "enabled": true,
+      "id": "employees-compliant",
+      "match": {
+        "groups": [
+          "employees"
+        ],
+        "methods": [
+          "dot1x"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "staff"
+    },
+    {
+      "enabled": true,
+      "id": "managed-remediation",
+      "match": {
+        "groups": [
+          "admins",
+          "employees"
+        ],
+        "methods": "any",
+        "postures": [
+          "noncompliant",
+          "unknown"
+        ]
+      },
+      "profile": "quarantine"
+    },
+    {
+      "enabled": true,
+      "id": "printer-mab",
+      "match": {
+        "groups": [
+          "printers"
+        ],
+        "methods": [
+          "mab"
+        ],
+        "postures": "any"
+      },
+      "profile": "print-only"
+    },
+    {
+      "enabled": true,
+      "id": "guest-restricted",
+      "match": {
+        "groups": [
+          "guests"
+        ],
+        "methods": "any",
+        "postures": "any"
+      },
+      "profile": "guest-only"
+    },
+    {
+      "enabled": true,
+      "id": "legacy-managed",
+      "match": {
+        "groups": [
+          "employees"
+        ],
+        "methods": [
+          "mab"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "staff"
+    }
+  ],
+  "schema_version": 1,
+  "title": "Synthetic NAC authorization review"
+}

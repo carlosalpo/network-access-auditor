@@ -1,0 +1,6 @@
+id,group,method,posture,expected_profile,decision,actual_profile,passed
+admin-mab-denied,admins,mab,compliant,deny,broad-first,staff,False
+noncompliant-restricted,employees,dot1x,noncompliant,quarantine,broad-first,staff,False
+printer-restricted,printers,mab,unknown,print-only,broad-first,staff,False
+staff-pass,employees,dot1x,compliant,staff,broad-first,staff,True
+unknown-denied,unclassified,dot1x,compliant,deny,broad-first,staff,False

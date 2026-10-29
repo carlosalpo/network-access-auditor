@@ -1,0 +1,58 @@
+{
+  "canonical_model_sha256": "8407a83134fa1f4964992db7b6fea9540c71b3639cd02fd0257bce85fe7c890c",
+  "counts": {
+    "checks": 5,
+    "enabled_rules": 6,
+    "endpoints": 6,
+    "failed_checks": 0,
+    "findings": 0,
+    "groups": 4,
+    "profiles": 6,
+    "rules": 6,
+    "states": 30
+  },
+  "files": {
+    "audit.json": {
+      "bytes": 11431,
+      "sha256": "38f036d75e3e7a438d363b80af2f2a78d111ee42a9b8e8d784056cc487cb2b55"
+    },
+    "checks.csv": {
+      "bytes": 457,
+      "sha256": "dee74acdd465a0c7329a3e8e83b246f70a69d5933297938b5b8753014dd99dde"
+    },
+    "endpoints.csv": {
+      "bytes": 589,
+      "sha256": "87fe92e2cadead34294cb088b34ab7812da104530737cba384d1daf00b52364e"
+    },
+    "findings.csv": {
+      "bytes": 46,
+      "sha256": "e43b98a76dba2b4296be1bef5be9c654b4f2ba51655e7b096b1b39339015f9a8"
+    },
+    "model.json": {
+      "bytes": 4948,
+      "sha256": "8407a83134fa1f4964992db7b6fea9540c71b3639cd02fd0257bce85fe7c890c"
+    },
+    "report.md": {
+      "bytes": 2685,
+      "sha256": "aa82551857f2fb791e83bab42af3a3073cc7875e942b6315c8c6751ca9a7fe91"
+    },
+    "rule-coverage.csv": {
+      "bytes": 325,
+      "sha256": "f5529a2eff1cc1a7a2e58f034a7218791cdca8cbc28c1bdfb68e135b21a9336f"
+    },
+    "states.csv": {
+      "bytes": 2028,
+      "sha256": "3b146c9ceba00f07a424868c37935266bbf94ed87f253a68dedef84e5dab77d8"
+    }
+  },
+  "gate": {
+    "fail_on": "medium",
+    "failed": false
+  },
+  "input_sha256": "3c2c7e70d4d503706db9cdcb13d6c267598e41c6e8c7fa13fcb1a355d947e0b7",
+  "schema_version": 1,
+  "scope": "offline-normalized-nac-model",
+  "status": "no_findings",
+  "tool": "network-access-auditor",
+  "version": "0.1.0"
+}

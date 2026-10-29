@@ -1,0 +1,79 @@
+[
+  {
+    "case": "baseline",
+    "exit_code": 0,
+    "expected_code": null,
+    "status": "no_findings",
+    "states": 30,
+    "findings": 0,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "risky-first-match",
+    "exit_code": 1,
+    "expected_code": "UNCLASSIFIED_INTERNAL_ACCESS",
+    "status": "review_required",
+    "states": 30,
+    "findings": 15,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "shadowed-rule",
+    "exit_code": 1,
+    "expected_code": "RULE_SHADOWED",
+    "status": "review_required",
+    "states": 30,
+    "findings": 1,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "expired-mab",
+    "exit_code": 1,
+    "expected_code": "MAB_EXCEPTION_EXPIRED",
+    "status": "review_required",
+    "states": 30,
+    "findings": 1,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "current-mab",
+    "exit_code": 0,
+    "expected_code": null,
+    "status": "no_findings",
+    "states": 30,
+    "findings": 0,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "intent-mismatch",
+    "exit_code": 1,
+    "expected_code": "INTENT_MISMATCH",
+    "status": "review_required",
+    "states": 30,
+    "findings": 1,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "permissive-default",
+    "exit_code": 1,
+    "expected_code": "PERMISSIVE_DEFAULT",
+    "status": "review_required",
+    "states": 30,
+    "findings": 8,
+    "artifacts": 9,
+    "hashes_verified": true
+  },
+  {
+    "case": "invalid-reference",
+    "exit_code": 2,
+    "expected_code": null,
+    "status": "input_error",
+    "artifacts": 0
+  }
+]

@@ -1,0 +1,9 @@
+PASS baseline: exit=0, artifacts=9
+PASS risky-first-match: exit=1, artifacts=9
+PASS shadowed-rule: exit=1, artifacts=9
+PASS expired-mab: exit=1, artifacts=9
+PASS current-mab: exit=0, artifacts=9
+PASS intent-mismatch: exit=1, artifacts=9
+PASS permissive-default: exit=1, artifacts=9
+PASS invalid-reference: exit=2, artifacts=0
+8 CLI scenarios passed; artifact hashes and modeled-state coverage verified.

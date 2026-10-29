@@ -1,0 +1,2 @@
+id,severity,code,location,message,remediation
+INTENT_MISMATCH:check/staff-pass,high,INTENT_MISMATCH,check/staff-pass,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.

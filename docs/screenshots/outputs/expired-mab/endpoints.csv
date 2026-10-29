@@ -1,0 +1,7 @@
+id,group,method,posture,decision,profile,access,exception_status,exception_owner,expires_on
+legacy-device,employees,mab,compliant,legacy-managed,staff,standard,expired,network-team,2026-10-28
+sample-1,employees,dot1x,compliant,employees-compliant,staff,standard,not-required,,
+sample-2,admins,mab,compliant,'@default,deny,deny,not-required,,
+sample-3,unclassified,dot1x,compliant,'@default,deny,deny,not-required,,
+sample-4,employees,dot1x,noncompliant,managed-remediation,quarantine,restricted,not-required,,
+sample-5,printers,mab,unknown,printer-mab,print-only,restricted,not-required,,

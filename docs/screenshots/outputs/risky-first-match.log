@@ -1,0 +1,3 @@
+case=risky-first-match
+exit=1
+REVIEW_REQUIRED | 15 findings | 30 modeled states | gate=FAIL (medium) | offline-normalized-nac-model

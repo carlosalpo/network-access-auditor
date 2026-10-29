@@ -1,0 +1,2 @@
+id,severity,code,location,message,remediation
+RULE_SHADOWED:rule/unreachable-admin,medium,RULE_SHADOWED,rule/unreachable-admin,Earlier rules cover every matching state in the modeled domain.,Review prior winners; remove or reorder only after checking intended behavior.

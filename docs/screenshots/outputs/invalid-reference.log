@@ -1,0 +1,3 @@
+case=invalid-reference
+exit=2
+Input error: rule.profile: unknown reference.

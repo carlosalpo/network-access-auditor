@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "reference-nac",
+  "title": "Synthetic NAC authorization review",
+  "assessment_date": "2026-10-29",
+  "provenance": {
+    "kind": "synthetic",
+    "reference": "Public hand-authored example; no Cisco ISE export"
+  },
+  "baseline": {
+    "standard_requires_dot1x": false,
+    "standard_requires_compliant": true
+  },
+  "groups": [
+    {
+      "id": "admins",
+      "label": "Managed administrators",
+      "trust": "managed"
+    },
+    {
+      "id": "employees",
+      "label": "Managed workstations",
+      "trust": "managed"
+    },
+    {
+      "id": "printers",
+      "label": "Unmanaged printers",
+      "trust": "unmanaged"
+    },
+    {
+      "id": "guests",
+      "label": "Guest identities",
+      "trust": "guest"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "deny",
+      "label": "Deny",
+      "access": "deny"
+    },
+    {
+      "id": "quarantine",
+      "label": "Declared restricted remediation",
+      "access": "restricted"
+    },
+    {
+      "id": "staff",
+      "label": "Internal standard access",
+      "access": "standard"
+    },
+    {
+      "id": "admin",
+      "label": "Privileged internal access",
+      "access": "privileged"
+    },
+    {
+      "id": "print-only",
+      "label": "Declared restricted printing",
+      "access": "restricted"
+    },
+    {
+      "id": "guest-only",
+      "label": "Declared restricted guest access",
+      "access": "restricted"
+    }
+  ],
+  "rules": [
+    {
+      "id": "admins-compliant",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "admins"
+        ],
+        "methods": [
+          "dot1x"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "admin"
+    },
+    {
+      "id": "employees-compliant",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "employees"
+        ],
+        "methods": [
+          "dot1x"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "staff"
+    },
+    {
+      "id": "managed-remediation",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "admins",
+          "employees"
+        ],
+        "methods": "any",
+        "postures": [
+          "noncompliant",
+          "unknown"
+        ]
+      },
+      "profile": "quarantine"
+    },
+    {
+      "id": "printer-mab",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "printers"
+        ],
+        "methods": [
+          "mab"
+        ],
+        "postures": "any"
+      },
+      "profile": "print-only"
+    },
+    {
+      "id": "guest-restricted",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "guests"
+        ],
+        "methods": "any",
+        "postures": "any"
+      },
+      "profile": "guest-only"
+    },
+    {
+      "id": "legacy-managed",
+      "enabled": true,
+      "match": {
+        "groups": [
+          "employees"
+        ],
+        "methods": [
+          "mab"
+        ],
+        "postures": [
+          "compliant"
+        ]
+      },
+      "profile": "staff"
+    }
+  ],
+  "default_profile": "deny",
+  "endpoints": [
+    {
+      "id": "sample-1",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "compliant",
+      "mab_exception": null
+    },
+    {
+      "id": "sample-2",
+      "group": "admins",
+      "method": "mab",
+      "posture": "compliant",
+      "mab_exception": null
+    },
+    {
+      "id": "sample-3",
+      "group": "unclassified",
+      "method": "dot1x",
+      "posture": "compliant",
+      "mab_exception": null
+    },
+    {
+      "id": "sample-4",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "mab_exception": null
+    },
+    {
+      "id": "sample-5",
+      "group": "printers",
+      "method": "mab",
+      "posture": "unknown",
+      "mab_exception": null
+    },
+    {
+      "id": "legacy-device",
+      "group": "employees",
+      "method": "mab",
+      "posture": "compliant",
+      "mab_exception": {
+        "owner": "network-team",
+        "reason": "Reviewed synthetic migration exception",
+        "expires_on": "2026-10-29"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "staff-pass",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "compliant",
+      "expected_profile": "staff"
+    },
+    {
+      "id": "admin-mab-denied",
+      "group": "admins",
+      "method": "mab",
+      "posture": "compliant",
+      "expected_profile": "deny"
+    },
+    {
+      "id": "unknown-denied",
+      "group": "unclassified",
+      "method": "dot1x",
+      "posture": "compliant",
+      "expected_profile": "deny"
+    },
+    {
+      "id": "noncompliant-restricted",
+      "group": "employees",
+      "method": "dot1x",
+      "posture": "noncompliant",
+      "expected_profile": "quarantine"
+    },
+    {
+      "id": "printer-restricted",
+      "group": "printers",
+      "method": "mab",
+      "posture": "unknown",
+      "expected_profile": "print-only"
+    }
+  ]
+}

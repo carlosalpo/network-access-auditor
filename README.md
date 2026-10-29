@@ -14,6 +14,12 @@ A permissive rule may be reachable, partially covered or completely hidden by ea
 
 This tool makes both questions reviewable: it enumerates effective authorization outcomes, reports rule coverage, checks owned/dated MAB exceptions for declared endpoint observations, and compares results with explicit intent checks. Every result is reproducible from the supplied model and assessment date.
 
+## Execution evidence
+
+![Effective access risk and its winning rule in a synthetic NAC model](docs/screenshots/images/01-risk-witness.jpg)
+
+[Explore five execution captures, raw reports and reproducible logs](docs/screenshots/README.md). The captures use labeled static evidence viewers, not an implemented UI or a live ISE session.
+
 ## Quick start
 
 Python 3.11 or newer. No runtime dependencies or network access after installation.
@@ -33,6 +39,8 @@ naa audit --input examples/risky-first-match.json --output risky-review
 Open `risky-review/report.md`. The broad first rule produces **15 findings across 30 modeled states**: effective baseline violations, five shadowed rules, four intent mismatches and two missing MAB exception records. These are model findings, not observed attacks or confirmed exploitable paths.
 
 `validate` checks the input contract only. `audit` reports findings and applies a severity gate. Exit **0** means the configured gate passed, **1** means it failed, and **2** means invalid input, a file error or incorrect command usage. The default gate is `--fail-on medium`; `--fail-on none` preserves every finding while returning 0. Always read the report's `status`, findings and gate together.
+
+[Download three generated review packages](https://github.com/carlosalpo/network-access-auditor/releases/download/v0.1.0/network-access-auditor-reviews-v0.1.0.zip) to inspect the reports without installing Python.
 
 ## What it reviews
 
@@ -79,6 +87,7 @@ The reference domain has four declared groups plus `unclassified`, two methods a
 
 ## Documentation
 
+- [Verification record](docs/verification.md) — 124 tests and eight CLI scenarios
 - [Input contract and baseline definitions](docs/input-model.md)
 - [Evaluation, findings and engineering decisions](docs/engineering.md)
 - [Cisco ISE normalization guide and exclusions](docs/ise-normalization.md)

@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-29T21:30:24.817813+00:00",
+  "recorded_execution_repository_unchanged": true,
+  "final_tracked_changes_since_execution": [
+    "README.md"
+  ],
+  "git_status_at_final_packaging": " M README.md\n?? docs/verification.md\n",
+  "source_tests_scripts_examples_match_recorded_commit": true,
+  "explanation": "README.md and docs/verification.md are being updated by a separate integration task after the recorded local execution. This evidence task did not edit repository files."
+}

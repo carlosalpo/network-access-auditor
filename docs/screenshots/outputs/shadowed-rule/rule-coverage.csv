@@ -1,0 +1,7 @@
+order,rule,enabled,profile,potential_states,effective_states,shadowed_states,shadowed_by
+1,admins-compliant,True,admin,1,1,0,
+2,employees-compliant,True,staff,1,1,0,
+3,managed-remediation,True,quarantine,8,8,0,
+4,printer-mab,True,print-only,3,3,0,
+5,guest-restricted,True,guest-only,6,6,0,
+6,unreachable-admin,True,admin,1,0,1,admins-compliant

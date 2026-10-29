@@ -1,0 +1,9 @@
+id,severity,code,location,message,remediation
+UNCLASSIFIED_INTERNAL_ACCESS:decision/@default,critical,UNCLASSIFIED_INTERNAL_ACCESS,decision/@default,Effective modeled access violates the declared review baseline.,Keep unclassified identities out of internal access profiles.
+INTENT_MISMATCH:check/admin-mab-denied,high,INTENT_MISMATCH,check/admin-mab-denied,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+INTENT_MISMATCH:check/unknown-denied,high,INTENT_MISMATCH,check/unknown-denied,First-match result differs from the declared expected profile.,Review the first winning rule against the expected profile.
+MAB_EXCEPTION_MISSING:endpoint/sample-2,high,MAB_EXCEPTION_MISSING,endpoint/sample-2,MAB internal access lacks a current accountable exception.,"Record accountable owner, reason and expiration for this MAB exception."
+PERMISSIVE_DEFAULT:decision/@default,high,PERMISSIVE_DEFAULT,decision/@default,Effective modeled access violates the declared review baseline.,Use deny/restricted default and explicit rules for internal access.
+STANDARD_UNTRUSTED_GROUP:decision/@default,high,STANDARD_UNTRUSTED_GROUP,decision/@default,Effective modeled access violates the declared review baseline.,Use a reviewed restricted profile for unmanaged/guest groups.
+STANDARD_WITHOUT_COMPLIANCE:decision/@default,high,STANDARD_WITHOUT_COMPLIANCE,decision/@default,Effective modeled access violates the declared review baseline.,Require compliant posture or explicitly revise the baseline.
+STANDARD_WITHOUT_DOT1X:decision/@default,high,STANDARD_WITHOUT_DOT1X,decision/@default,Effective modeled access violates the declared review baseline.,Require dot1x or explicitly revise the declared baseline after review.

@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Esperado: deny. Resultado: staff. | Network Access Auditor</title><link rel="stylesheet" href="style.css"><main class="page"><header><div class="eyebrow"><span>Network Access Auditor / Evidencia de ejecución</span><span class="label">Not product UI</span></div><h1>Esperado: deny. Resultado: staff.</h1><p class="sub">Escenario: intent-mismatch · una diferencia concreta vinculada a su regla ganadora.</p></header><div class="stats"><div class="stat"><strong>5</strong><span>comprobaciones de intención</span></div><div class="stat"><strong>1</strong><span>discrepancia exacta de perfil</span></div><div class="stat"><strong>deny</strong><span>expected_profile</span></div><div class="stat"><strong>staff</strong><span>actual_profile</span></div></div><section><h2>Comprobación que falla · staff-pass</h2><table><thead><tr><th>group</th><th>method</th><th>posture</th><th>decision / ganadora</th><th>passed</th></tr></thead><tbody><tr><td>employees</td><td>dot1x</td><td>compliant</td><td>employees-compliant</td><td>false</td></tr></tbody></table></section><section><h2>Evidencia literal del hallazgo INTENT_MISMATCH</h2><pre>{
+  &quot;actual_profile&quot;: &quot;staff&quot;,
+  &quot;context&quot;: {
+    &quot;group&quot;: &quot;employees&quot;,
+    &quot;method&quot;: &quot;dot1x&quot;,
+    &quot;posture&quot;: &quot;compliant&quot;
+  },
+  &quot;decision&quot;: &quot;employees-compliant&quot;,
+  &quot;expected_profile&quot;: &quot;deny&quot;
+}</pre></section><pre>case=intent-mismatch
+exit=1
+REVIEW_REQUIRED | 1 findings | 30 modeled states | gate=FAIL (medium) | offline-normalized-nac-model
+</pre><p class="note">Se comparan IDs exactos de perfil contra la intención declarada. La regla employees-compliant gana y entrega staff; el modelo de este escenario esperaba deny. La herramienta no modifica reglas.</p><div class="sources">FUENTES · rutas relativas al paquete · SHA-256 abreviado (completo en manifest.json)<br>outputs/intent-mismatch/audit.json · 97845946da2f3248<br>outputs/intent-mismatch.log · 7c9e5b71d7d55e8c</div><footer><b>Auditor OFFLINE · JSON NAC normalizado manualmente · ejemplos sintéticos.</b><br>Sin conexión, importación o emulación de ISE; sin autenticación ni enforcement real. Trust y access son declarados.<br>Estos resultados no prueban explotación ni certifican seguridad.<div class="meta"><span>Network Access Auditor · v0.1.0 · commit bf76b4bf12d0</span><span>Captura 2026-10-29 · America/Tegucigalpa · 4/5</span></div></footer></main></html>

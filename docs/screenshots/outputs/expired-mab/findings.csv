@@ -1,0 +1,2 @@
+id,severity,code,location,message,remediation
+MAB_EXCEPTION_EXPIRED:endpoint/legacy-device,high,MAB_EXCEPTION_EXPIRED,endpoint/legacy-device,MAB internal access lacks a current accountable exception.,Renew after review or remove the exception and its access path.

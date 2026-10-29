@@ -1,0 +1,50 @@
+[
+  {
+    "id": "01-risk-witness",
+    "viewer": "viewer/01-risk-witness.html",
+    "sources": [
+      "outputs/risky-first-match/audit.json",
+      "outputs/risky-first-match.log"
+    ],
+    "selection": "Four findings with affected_states; first witness of UNCLASSIFIED_INTERNAL_ACCESS. Counts grouped by code. Raw scenario log."
+  },
+  {
+    "id": "02-rule-coverage",
+    "viewer": "viewer/02-rule-coverage.html",
+    "sources": [
+      "outputs/risky-first-match/audit.json",
+      "outputs/shadowed-rule/audit.json"
+    ],
+    "selection": "All risky-first-match rule coverage rows with selected columns; unreachable-admin row and its witness with selected columns from shadowed-rule."
+  },
+  {
+    "id": "03-mab-expiration",
+    "viewer": "viewer/03-mab-expiration.html",
+    "sources": [
+      "outputs/expired-mab/audit.json",
+      "outputs/current-mab/audit.json"
+    ],
+    "selection": "legacy-device endpoint in both audits, assessment dates, counts, gates, shared baseline and expired finding literal code/message."
+  },
+  {
+    "id": "04-intent-mismatch",
+    "viewer": "viewer/04-intent-mismatch.html",
+    "sources": [
+      "outputs/intent-mismatch/audit.json",
+      "outputs/intent-mismatch.log"
+    ],
+    "selection": "Only failed check (staff-pass); full finding evidence; exact scenario log. Counts from audit."
+  },
+  {
+    "id": "05-verification",
+    "viewer": "viewer/05-verification.html",
+    "sources": [
+      "logs/pytest.stdout.log",
+      "outputs/summary.json",
+      "logs/verification.json",
+      "logs/run.json",
+      "logs/examples.stdout.log"
+    ],
+    "selection": "Full pytest stdout; all 8 summary rows. Verification counts from assertions; literal final runner line."
+  }
+]
